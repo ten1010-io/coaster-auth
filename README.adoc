@@ -1,7 +1,7 @@
 = Coaster Auth
 :github: https://github.com/ten1010-io/cosater-auth
 
-Coaster Auth는 link:https://spring.io/[Java Spring] 스택 기반의 신원 및 접근 관리 오픈 소스 소프트웨어입니다.
+Coaster Auth는 link:https://spring.io/[Java Spring] 스택 기반의 IAM(Identity and Access Management) 오픈 소스 소프트웨어입니다.
 
 주요 기능 :
 
