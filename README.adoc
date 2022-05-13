@@ -12,10 +12,10 @@ Coaster Auth는 link:https://spring.io/[Java Spring] 스택 기반의 신원 및
 
 == 참고 자료
 
-* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT/getting-started[Getting started]
-* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT/rest-api[REST API Reference]
-* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT/git-workflow[Git workflow]
-* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT[그 외 문서들]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.1-SNAPSHOT/getting-started[Getting started]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.1-SNAPSHOT/rest-api[REST API Reference]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.1-SNAPSHOT/git-workflow[Git workflow]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.1-SNAPSHOT[그 외 문서들]
 
 == 보안 취약점 리포팅
 
