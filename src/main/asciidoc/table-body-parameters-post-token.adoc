@@ -1,0 +1,20 @@
+|===
+| 파라미터 | 타입 | 설명
+
+| grant_type
+| String
+| 'authorization_code' 또는 'refresh_token'
+
+| code
+| String
+| grant_type이 'authorization_code'일 경우 필수
+
+| refresh_token
+| String
+| grant_type이 'refresh_token'일 경우 필수
+
+
+| redirect_uri
+| String
+| 인가 코드를 부여 받은 요청에서 사용하였던 redirect_uri와 반드시 같아야 함
+|===

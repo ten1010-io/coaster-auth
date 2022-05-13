@@ -1,0 +1,59 @@
+= Git Workflow
+
+기본적으로 이 문서에 명시된 사항 외에는 link:https://github.com/spring-projects/spring-boot/wiki/Working-with-Git-branches[Spring의 git workflow]를 따릅니다.
+
+== Commit Message
+
+=== 1. 포맷
+
+****
+<type>: <subject> +
+<BLANK LINE> +
+<body> +
+<BLANK LINE> +
+<footer>
+****
+
+=== 2. Type
+
+. feat : feature
+. fix : bug fix
+. mrg-frd : merge forward
+.. '[이전 branch]' into '[현재 branch]'
+.. (main branch일시) '[이전 branch]'
+.. 예 : mrg-frd : '1.0.x' into '1.1.x'
+. mrg-pr : merge pull request
+.. #[pr번호] from [작성자 username]
+.. 예 : mrg-pr : #4324 from ynoohe1
+. chore : maintainence
+
+=== 3. Subject
+
+. 명령형 문장
+. 첫 문자 소문자
+. 끝에 dot(.) 사용 안함
+
+=== 4. Body
+
+. "무엇"과 "왜"를 설명
+. 첫 문자 대문자
+
+=== 5. Footer
+
+. issue 참조
+. 첫 문자 대문자
+
+=== 6. 예제
+
+****
+feat : allow provided config object to extend other configs
+****
+
+****
+feat : ng:disabled, ng:checked, ng:multiple, ng:readonly, ng:selected
+
+New directives for proper binding these attributes in older browsers (IE).
+Add coresponding description, live examples and e2e tests.
+
+Closes #351
+****

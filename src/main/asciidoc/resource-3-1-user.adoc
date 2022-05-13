@@ -1,0 +1,253 @@
+=== 3.1. User core v1
+
+|===
+| API 그룹 | 버전 | 타입
+
+| core
+| v1
+| User
+|===
+
+.User
+|===
+| 필드 | 타입 |설명
+
+| metdata
+| Metadata meta v1
+| 메타데이터
+
+| userId
+| String
+| 유저의 id +
+최소 6자 길이 이상
+오직 알파벳과 숫자의 조합만 허용
+
+| password
+| String
+| 유저의 비밀번호 +
+최소 8자 길이 이상
+최소 1개의 소문자, 1개의 대문자, 1개의 숫자, 1개의 특수문자 포함
+
+| koreanName
+| String
+| 한글이름 +
+오직 2글자 ~ 4글자의 한글만 허용
+
+| phoneNumber
+| String
+| 전화번호 +
+전화번호 형식만 허용
+
+| email
+| String
+| 이메일 +
+이메일 형식만 허용
+
+| department
+| String
+| 부서명 +
+최소 2자 길이 이상
+숫자와 문자 허용
+숫자와 문자 사이의 공백 허용
+|===
+
+.UserList
+include::table-definition-api-resource-list.adoc[]
+
+==== 3.1.1 Create
+
+.HTTP Request
+POST /apis/core/v1/users
+
+.Request Body
+User core v1
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+| User core v1
+|===
+
+.예시
+****
+.요청
+include::{snippets}/core/v1/user/create-user/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/create-user/http-response.adoc[]
+****
+
+==== 3.1.2 List
+
+.HTTP Request
+GET /apis/core/v1/users
+
+.Query Parameters
+include::table-query-parameters-list-option.adoc[]
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+| UserList core v1
+|===
+
+.예시(all)
+****
+.요청
+include::{snippets}/core/v1/user/list-users-all/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/list-users-all/http-response.adoc[]
+****
+
+.예시(findBy)
+****
+.요청
+include::{snippets}/core/v1/user/list-users-find-by/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/list-users-find-by/http-response.adoc[]
+****
+
+.예시(limit)
+****
+.요청
+include::{snippets}/core/v1/user/list-users-limit/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/list-users-limit/http-response.adoc[]
+****
+
+==== 3.1.3 Get
+
+.HTTP Request
+GET /apis/core/v1/users/{id}
+
+.Path Parameters
+include::table-path-parameters-id.adoc[]
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+| User core v1
+|===
+
+.예시
+****
+.요청
+include::{snippets}/core/v1/user/get-user/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/get-user/http-response.adoc[]
+****
+
+==== 3.1.4 Update
+
+.HTTP Request
+PUT /apis/core/v1/users/{id}
+
+.Path Parameters
+include::table-path-parameters-id.adoc[]
+
+.Request Body
+User core v1
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+| User core v1
+|===
+
+.예시
+****
+.요청
+include::{snippets}/core/v1/user/update-user/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/update-user/http-response.adoc[]
+****
+
+==== 3.1.5 Patch
+
+.HTTP Request
+PATCH /apis/core/v1/users/{id}
+
+.Path Parameters
+include::table-path-parameters-id.adoc[]
+
+.Request Body
+JsonPatch(RFC 6902)
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+| User core v1
+|===
+
+.예시
+****
+.요청
+include::{snippets}/core/v1/user/patch-user/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/patch-user/http-response.adoc[]
+****
+
+==== 3.1.6 Delete
+
+.HTTP Request
+DELETE /apis/core/v1/users/{id}
+
+.Path Parameters
+include::table-path-parameters-id.adoc[]
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+| User core v1
+|===
+
+.예시
+****
+.요청
+include::{snippets}/core/v1/user/delete-user/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/delete-user/http-response.adoc[]
+****
+
+==== 3.1.7 Delete collection
+
+.HTTP Request
+DELETE /apis/core/v1/users
+
+.Query Parameters
+include::table-query-parameters-list-option.adoc
+
+.HTTP Response
+|===
+| 상태 코드 | 본문
+
+| 200
+|
+|===
+
+.예시(all)
+****
+.요청
+include::{snippets}/core/v1/user/delete-users-all/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/delete-users-all/http-response.adoc[]
+****
+
+.예시(findBy)
+****
+.요청
+include::{snippets}/core/v1/user/delete-users-find-by/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/delete-users-find-by/http-response.adoc[]
+****

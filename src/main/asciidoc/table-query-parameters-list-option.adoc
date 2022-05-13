@@ -1,0 +1,19 @@
+|===
+| 파라미터 | 타입 | 설명
+
+| page
+| Integer
+| 페이지
+
+| limit
+| Integer
+| 한 페이지에 포함될 수 있는 요소의 최대수
+
+| findBy
+| String
+| 검색 대상 컬럼
+
+| query
+| String
+| 검색값
+|===

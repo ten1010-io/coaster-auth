@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coaster-auth-envs
+  namespace: coaster-auth
+data:
+  TZ: Asia/Seoul
+  SPRING_DATASOURCE_URL: >
+    jdbc:mysql://mysql.coaster-auth:3306/coaster_auth?
+    createDatabaseIfNotExist=true&
+    characterEncoding=UTF-8&
+    serverTimezone=Asia/Seoul
+  SPRING_DATASOURCE_USERNAME: root
+  APP_OAUTH2_CLIENT_REDIRECT_URIS: # To be filled
+---

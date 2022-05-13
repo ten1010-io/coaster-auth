@@ -1,0 +1,15 @@
+|===
+| 필드 | 타입 | 설명
+
+| page
+| Integer
+| 리스트 요청시의 page 값
+
+| limit
+| Integer
+| 리스트 요청시의 limit 값
+
+| items
+| List
+| 리소스들
+|===

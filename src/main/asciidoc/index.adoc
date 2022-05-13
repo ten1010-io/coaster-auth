@@ -1,0 +1,177 @@
+= Coaster Auth REST API Reference
+hyeongdeok.yoon@ten1010.io;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:table-caption!:
+
+[[overview]]
+== 1. 개요
+
+[[http-verbs]]
+=== 1.1 HTTP Verbs
+
+include::table-http-verb.adoc[]
+
+[[http-status-codes]]
+=== 1.2 HTTP 상태 코드들
+
+include::table-http-status-code.adoc[]
+
+[[error-response]]
+=== 1.3 에러 응답
+
+에러 응답이 발생했을 때 (상태 코드 >= 400), 본문에 해당 문제를 기술한 Status 객체가 담겨있습니다.
+
+예를 들어, 잘못된 요청으로 유저를 만들려고 했을 때 다음과 같은 `400 Bad Request` 응답을 받습니다.
+
+****
+.요청
+include::{snippets}/core/v1/user/create-user-error/http-request.adoc[]
+.응답
+include::{snippets}/core/v1/user/create-user-error/http-response.adoc[]
+****
+
+[[non-resource]]
+== 2. Non Resource
+
+=== 2.1. Oauth2 code grant flow
+
+code grant flow는 크게 리소스 소유자를 인증하고 인가 코드를 부여 받는 단계와 인가 코드를 통해 엑세스 토큰을 발급받는 과정으로 나뉩니다.
+
+==== 단계1. 리소스 소유자 인증
+
+이 단계에서는 리소스 소유자를 인증합니다.
+아래 2가지 방식 중 하나를 선택할 수 있습니다.
+
+===== 선택1. 로그인 페이지 리다이렉션 방식
+
+이 방식은 클라이언트에게 리소스 소유자의 인증 정보를 전달하지 않아도 되므로 외부 클라이언트에게 적합합니다.
+
+.절차
+1. 클라이언트가 coaster-auth에게 인가 요청(GET /apis/oauth/v2/authorize)
+2. coaster-auth 로그인 페이지에서 리소스 소유자 로그인
+3. coaster-auth가 인가 코드를 리다이렉션을 통해 클라이언트에게 전송
+
+.Query Parameters (GET /apis/oauth/v2/authorize)
+include::table-query-parameters-post-get-authorize.adoc[]
+
+.인가 요청 예시
+****
+.요청
+include::{snippets}/oauth2-code-grant-flow-example/redirection-login-page/1-get-authorize/http-request.adoc[]
+.응답
+include::{snippets}/oauth2-code-grant-flow-example/redirection-login-page/1-get-authorize/http-response.adoc[]
+****
+
+===== 선택2. 클라이언트에게 위임하는 방식
+
+이 방식에서는 클라이언트가 리소스 소유자의 id와 password를 전달 받아 coaster-auth에 직접 로그인합니다.
+따라서 이 방식은 반드시 신뢰할 수 있는 클라이언트에서만 사용해야합니다.
+
+.절차
+1. 클라이언트가 coaster-auth에게 리소스 사용자의 id와 password를 가지고 로그인 요청(POST /apis/login/v1/login)
+2. 클라이언트가 coaster-auth에게 인가 요청(POST /apis/oauth/v2/authorize)
+3. coaster-auth가 인가 코드를 리다이렉션을 통해 클라이언트에게 전송
+
+.Body Parameters (POST /apis/login/v1/login)
+include::table-body-parameters-post-login.adoc[]
+
+.Query Parameters (POST /apis/oauth/v2/authorize)
+include::table-query-parameters-post-get-authorize.adoc[]
+
+.로그인 요청 예시
+****
+.요청
+include::{snippets}/oauth2-code-grant-flow-example/delegating-to-client/1-post-login/http-request.adoc[]
+.응답
+include::{snippets}/oauth2-code-grant-flow-example/delegating-to-client/1-post-login/http-response.adoc[]
+****
+
+.인가 요청 예시
+****
+.요청
+include::{snippets}/oauth2-code-grant-flow-example/delegating-to-client/2-post-authorize/http-request.adoc[]
+.응답
+include::{snippets}/oauth2-code-grant-flow-example/delegating-to-client/2-post-authorize/http-response.adoc[]
+****
+
+==== 단계2. 엑세스 토큰 발급
+
+이 단계에서는 전달 받은 인가 코드를 엑세스 토큰으로 교환합니다.
+
+인가 요청 scope에 openid가 포함되었다면 응답에 id_token이 포함됩니다.
+
+.절차
+1. 클라이언트가 coaster-auth에게 토큰 요청(POST /apis/oauth/v2/token)
+
+.Body Parameters (POST /apis/oauth/v2/token)
+include::table-body-parameters-post-token.adoc[]
+
+.토큰 요청 예시
+****
+.요청
+include::{snippets}/oauth2-code-grant-flow-example/post-token/http-request.adoc[]
+.응답
+include::{snippets}/oauth2-code-grant-flow-example/post-token/http-response.adoc[]
+****
+
+[[resource]]
+== 3. Resource
+
+include::resource-3-1-user.adoc[]
+
+[[Definition]]
+== 4. Definition
+
+=== 4.1. Status meta v1
+
+|===
+| API 그룹 | 버전 | 타입
+
+| meta
+| v1
+| Status
+|===
+
+.Status
+|===
+| 필드 | 타입 |설명
+
+| type
+| String
+| 타입
+
+| detail
+| Object
+| 상세 사항
+|===
+
+=== 4.2. Metadata meta v1
+|===
+| API 그룹 | 버전 | 타입
+
+| meta
+| v1
+| Metadata
+|===
+
+.Metadata
+|===
+| 필드 | 타입 |설명
+
+| id
+| Long
+| 리소스 id
+
+| version
+| Integer
+| 리소스 version
+
+| creationTimestamp
+| String
+| 리소스의 생성 시간 +
+ISO 8601에서 정의하는 타임존을 포함하는 날짜 시간 형식
+|===

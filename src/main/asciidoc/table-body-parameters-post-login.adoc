@@ -1,0 +1,11 @@
+|===
+| 파라미터 | 타입 | 설명
+
+| username
+| String
+| 리소스 소유자의 id
+
+| password
+| String
+| 비밀번호
+|===

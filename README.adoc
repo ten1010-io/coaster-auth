@@ -1,0 +1,30 @@
+= Coaster Auth
+:github: https://github.com/ten1010-io/cosater-auth
+
+Coaster Auth는 link:https://spring.io/[Java Spring] 스택 기반의 신원 및 접근 관리 오픈 소스 소프트웨어입니다.
+
+주요 기능 :
+
+* OAuth 2.0 authorization server
+* OpenID Connect identity provider
+* Kubernetes 배포 유틸리티
+* kube-apiserver OIDC 설정 유틸리티
+
+== 참고 자료
+
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT/getting-started[Getting started]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT/rest-api[REST API Reference]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT/git-workflow[Git workflow]
+* link:https://ten1010.io/projects/coaster-auth/docs/1.0.0-SNAPSHOT[그 외 문서들]
+
+== 보안 취약점 리포팅
+
+보안 취약점 발견시 *절대 이슈에 리포팅하지 마시고* hyeongdeok.yoon@ten1010.io으로 리포팅해주세요.
+
+== 버그 리포팅 및 개선 사항, 질의
+
+버그를 발견하시거나 개선 사항, 질의가 있다면 link:https://github.com/ten1010-io/coaster-auth/issues[Github Issue]를 열어주세요.
+
+== License
+
+link:https://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]

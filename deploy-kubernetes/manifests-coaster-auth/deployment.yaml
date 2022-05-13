@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coaster-auth
+  namespace: coaster-auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coaster-auth
+  template:
+    metadata:
+      labels:
+        app: coaster-auth
+    spec:
+      containers:
+        - name: coaster-auth
+          image: coaster-auth:1.0.0-SNAPSHOT
+          envFrom:
+            - configMapRef:
+                name: coaster-auth-envs
+            - secretRef:
+                name: coaster-auth-envs
+          volumeMounts:
+            - name: pki
+              readOnly: true
+              mountPath: /etc/coaster/pki
+      volumes:
+        - name: pki
+          secret:
+            secretName: pki
+---
