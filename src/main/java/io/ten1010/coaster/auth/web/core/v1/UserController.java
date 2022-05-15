@@ -31,7 +31,7 @@ import java.util.stream.Collectors;
 @RequestMapping(UriConstants.APIS + UriConstants.API_CORE_V1 + CoreV1UriConstants.RES_USERS)
 public class UserController {
 
-    public static final String CONCEALED = "--- CONCEALED ---";
+    public static final String REDACTED = "--- REDACTED ---";
 
     private static UserApiResource toApiResource(User user) {
         Metadata.MetadataBuilder metaBuilder = Metadata.builder();
@@ -48,7 +48,7 @@ public class UserController {
         user.getPhoneNumber().ifPresent(resBuilder::phoneNumber);
         user.getEmail().ifPresent(resBuilder::email);
         user.getDepartment().ifPresent(resBuilder::department);
-        resBuilder.password(CONCEALED);
+        resBuilder.password(REDACTED);
 
         return resBuilder.build();
     }
