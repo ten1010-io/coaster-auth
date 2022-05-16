@@ -1,6 +1,6 @@
 package io.ten1010.coaster.auth.web;
 
-import io.ten1010.coaster.auth.web.oauth2.RSAKeySource;
+import io.ten1010.coaster.auth.web.oauth.v2.RSAKeySource;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.OAuth2ResourceServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

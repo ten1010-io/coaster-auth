@@ -1,4 +1,4 @@
-package io.ten1010.coaster.auth.web.oauth2;
+package io.ten1010.coaster.auth.web.oauth.v2;
 
 public class Oauth2UriConstants {
 

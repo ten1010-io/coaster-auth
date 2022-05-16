@@ -1,4 +1,4 @@
-package io.ten1010.coaster.auth.web.oauth2;
+package io.ten1010.coaster.auth.web.oauth.v2;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.OAuth2Error;
