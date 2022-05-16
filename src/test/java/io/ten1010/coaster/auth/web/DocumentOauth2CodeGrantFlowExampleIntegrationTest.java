@@ -2,7 +2,7 @@ package io.ten1010.coaster.auth.web;
 
 import io.ten1010.coaster.auth.web.UriConstants;
 import io.ten1010.coaster.auth.web.login.v1.LoginUriConstants;
-import io.ten1010.coaster.auth.web.oauth2.Oauth2UriConstants;
+import io.ten1010.coaster.auth.web.oauth.v2.Oauth2UriConstants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
