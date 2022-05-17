@@ -50,3 +50,11 @@ kubectl ./deploy-kubernetes/namesapce.yaml
 kubectl ./deploy-kubernetes/manifests-mysql
 kubectl ./deploy-kubernetes/manifests-coaster-auth
 ----
+
+== 5. Kubernetes 클러스터 OIDC 설정
+
+.kube-apiserver.yaml 설정
+[source,shell]
+----
+set-kube-apiserver-yaml.sh /etc/kubernetes/manifests/kube-apiserver.yaml
+----
