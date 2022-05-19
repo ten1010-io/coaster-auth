@@ -309,7 +309,7 @@ class DocumentCoreV1UserApisIntegrationTest {
         createUser(this.webTestClient, "userid1", "qwerty1234@", "이름", "000-0000-0000", "e1@host", "dept1");
         UserApiResource found = findByUserId(this.webTestClient, "userid1");
         this.webTestClient
-                .get()
+                .delete()
                 .uri(UriConstants.APIS + UriConstants.API_CORE_V1 + CoreV1UriConstants.RES_USERS + "/" + found.getMetadata().getId())
                 .exchange()
                 .expectBody()
